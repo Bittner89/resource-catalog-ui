@@ -1,15 +1,7 @@
 import './App.css'
-import ResourceCard from './components/ResourceCard.jsx'
-function App() {
+import ResourceList from './components/ResourceList.jsx'
 
-  const dummyResource = {
-    id: '1',
-    title: 'Einführung in React Hooks',
-    type: 'Online-Kurs',
-    description: 'Ein umfassender Leitfaden zu useState, useEffect und useContext, der die Grundlagen und fortgeschrittenen Konzepte abdeckt.',
-    authorId: 'dev_guide_team',
-    createdAt: '2022-05-10T08:00:00Z',
-  };
+function App() {
 
   return (
     <div className='min-h-screen bg-white font-sans antialiased'>
@@ -21,10 +13,8 @@ function App() {
       </header>
 
       <main className="container mx-auto px-6 max-w-screen-xl py-8 mt-8">
-        <h2 className="text-3xl font-bold mb-6 text-gray-800">Test Resource</h2>
-        <div className="max-w-xl">
-          <ResourceCard resource={dummyResource} />
-        </div>
+        <h2 className="text-3xl font-bold mb-10 text-gray-800">Entdecken Sie unsere Ressourcen</h2>
+        <ResourceList />
       </main>
     </div>
   )
