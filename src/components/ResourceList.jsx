@@ -13,7 +13,7 @@ const ResourceList = () => {
             setError(null);
 
             try {
-                await new Promise(resolve => setTimeout(resolve, 2000));
+                await new Promise(resolve => setTimeout(resolve, 500));
                 const response = await fetch('http://localhost:5002/resources');
 
                 if (!response.ok) {
