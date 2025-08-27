@@ -1,9 +1,19 @@
 import './index.css';
-import React from 'react';
+import React, { useState } from 'react';
 import ResourceList from './components/ResourceList.jsx';
 import ResourceDetail from './components/ResourceDetail.jsx';
 
 function App() {
+
+  const [selectedResourceId, setselectedResourceId] = useState(null);
+
+  const handleSelectResource = (id) => {
+    setselectedResourceId(id);
+  };
+
+  const handleBackToList = () => {
+    setselectedResourceId(null);
+  }
 
   const dummyDetailResource = {
     id: 'detail-1',
@@ -29,10 +39,17 @@ function App() {
       </header>
 
       <main className="container mx-auto px-6 max-w-screen-xl py-8 mt-8">
-        <h2 className="text-3xl font-bold mb-10 text-gray-800">Entdecken Sie unsere Ressourcen</h2>
-        <ResourceList />
-        <h2 className="text-3xl font-bold mb-6 mt-12 text-gray-800">Ressourcen-Details</h2>
-         <ResourceDetail resource={dummyDetailResource}/>
+        {selectedResourceId ? (
+          <ResourceDetail
+            resourceId={selectedResourceId}
+            onBack={handleBackToList}
+          />
+        ) : (
+          <>
+            <h2 className="text-3xl font-bold mb-10 text-gray-800">Entdecken Sie unsere Ressourcen</h2>
+            <ResourceList onSelectResource={handleSelectResource} />
+          </>
+        )}
       </main>
     </div>
   )
