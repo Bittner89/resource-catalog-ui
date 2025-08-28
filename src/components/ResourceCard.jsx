@@ -1,5 +1,5 @@
 import React from "react";
-
+import { formatDate } from "../utils/formatDate";
 const ResourceCard = ({ resource, onClick }) => {
     if (!resource) {
         return null;
@@ -7,13 +7,7 @@ const ResourceCard = ({ resource, onClick }) => {
 
     const { id, title, type, description, authorId, createdAt } = resource;
 
-    const formattedDate = createdAt
-        ? new Date(createdAt).toLocaleDateString('de-DE', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        })
-        : 'N/A';
+    const formattedDate = formatDate(createdAt);
 
     return (
         <div
