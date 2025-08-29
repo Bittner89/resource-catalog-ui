@@ -1,5 +1,6 @@
 import React from "react";
-import { formatDate } from "../utils/formatDate";
+import { formatDate } from "../utils/formatDate.js";
+
 const ResourceCard = ({ resource, onClick }) => {
     if (!resource) {
         return null;
@@ -10,7 +11,7 @@ const ResourceCard = ({ resource, onClick }) => {
     const formattedDate = formatDate(createdAt);
 
     return (
-        <div
+        <div 
             className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out flex flex-col h-full cursor-pointer"
             onClick={onClick}
         >
@@ -23,13 +24,10 @@ const ResourceCard = ({ resource, onClick }) => {
                 {authorId &&
                     <span className="flex items-center">Autor-ID: {authorId}</span>
                 }
-                {createdAt &&
+                {createdAt && 
                     <span className="flex items-center">Erstellt: {formattedDate}</span>
-
                 }
-
             </div>
-
         </div>
     );
 };
